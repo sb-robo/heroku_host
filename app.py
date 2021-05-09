@@ -1,4 +1,5 @@
 import pickle
+import json
 import numpy as np
 from scipy import stats
 from flask import Flask, request, jsonify
@@ -6,9 +7,10 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 models, scalar = pickle.load(open('model.pkl', 'rb'))
 
-@app.route('/crop_recommendation', methods=['POST'])
+@app.route('/', methods=['POST'])
 def get_crop_recommendation():
-    json_data = request.json
+    json_file = request.json
+    json_data = json.load(json_file)
     data = []
     predictions = []
     for x in json_data:
