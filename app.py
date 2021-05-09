@@ -9,14 +9,27 @@ models, scalar = pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/', methods=['POST'])
 def get_crop_recommendation():
-    json_data = request.json
+
+    data = []
+    predictions = []
+
+    """json_data = request.from
     #print(json_file)
     #json_data = json.load(json_file)
     #print(json_data)
-    data = []
-    predictions = []
     for x in json_data:
-        data.append( json_data[x])
+        data.append( json_data[x])"""
+        
+    temp = request.from.get("Temperature")
+    ph = request.from.get("ph")
+    humidity = request.from.get("Humidity")
+    temp = request.from.get("Temperature")
+    rain = request.from.get("Rainfall")
+    nitrogenRatio = request.from.get("NitrogenRatio")
+    phosphorousRatio = request.from.get("PhosphorousRatio")
+    potasiumRatio = request.from.get("PotasiumRatio")
+
+    data = [nitrogenRatio, phosphorousRatio, potasiumRatio, temp, humidity, ph, rain]
 
     data = scalar.transform(np.array(data).reshape(1,7))
     for _, model in models:
