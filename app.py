@@ -9,10 +9,10 @@ models, scalar = pickle.load(open('model.pkl', 'rb'))
 @app.route('/crop_recommendation', methods=['GET'])
 def get_crop_recommendation():
     json_data = request.json
-    for x in json_data:
-        data = json_data[x]
-    
+    data = []
     predictions = []
+    for x in json_data:
+        data.append( json_data[x])
 
     data = scalar.transform(data)
     for _, model in models:
