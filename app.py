@@ -20,14 +20,13 @@ def get_crop_recommendation():
     for x in json_data:
         data.append( json_data[x])"""
         
-    temp = request.from.get("Temperature")
-    ph = request.from.get("ph")
-    humidity = request.from.get("Humidity")
-    temp = request.from.get("Temperature")
-    rain = request.from.get("Rainfall")
-    nitrogenRatio = request.from.get("NitrogenRatio")
-    phosphorousRatio = request.from.get("PhosphorousRatio")
-    potasiumRatio = request.from.get("PotasiumRatio")
+    temp = request.form.get("Temperature")
+    ph = request.form.get("Ph")
+    humidity = request.form.get("Humidity")
+    rain = request.form.get("Rainfall")
+    nitrogenRatio = request.form.get("NitrogenRatio")
+    phosphorousRatio = request.form.get("PhosphorousRatio")
+    potasiumRatio = request.form.get("PotasiumRatio")
 
     data = [nitrogenRatio, phosphorousRatio, potasiumRatio, temp, humidity, ph, rain]
 
