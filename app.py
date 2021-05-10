@@ -1,10 +1,11 @@
 import pickle
-import json
 import numpy as np
 from scipy import stats
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 models, scalar = pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/', methods=['POST'])
