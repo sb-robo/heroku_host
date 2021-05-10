@@ -26,12 +26,12 @@ def get_crop_recommendation():
     humidity = request.form.get("Humidity")
     rain = request.form.get("Rainfall")
     nitrogenRatio = request.form.get("NitrogenRatio")
-    phosphorousRatio = request.form.get("PhosphorousRatio")
-    potasiumRatio = request.form.get("PotassiumRatio")
+    phosphorusRatio = request.form.get("PhosphorusRatio")
+    potassiumRatio = request.form.get("PotassiumRatio")
 
-    print(nitrogenRatio, phosphorousRatio, potasiumRatio, temp, humidity, ph, rain)
+    print(nitrogenRatio, phosphorusRatio, potassiumRatio, temp, humidity, ph, rain)
 
-    data = [nitrogenRatio, phosphorousRatio, potasiumRatio, temp, humidity, ph, rain]
+    data = [nitrogenRatio, phosphorusRatio, potassiumRatio, temp, humidity, ph, rain]
 
     data = scalar.transform(np.array(data).reshape(1,7))
     for _, model in models:
